@@ -12,27 +12,6 @@ def main():
         exit()
 
 def start_game():
-    print ("IMPORTANT: Only the first difficulty is implemented for now!!!!")
-    print("Choose a difficulty:")
-    print("1. Easy")
-    print("2. Medium")
-    print("3. Hard")
-    print("4. Insane")
-    difficulty = input("Enter your difficulty: ")
-    if difficulty == "1":
-        game_diff1()
-    elif difficulty == "2":
-        game_diff2()
-    elif difficulty == "3":
-        game_diff3()
-    elif difficulty == "4":
-        game_diff4()
-    else:
-        print("Invalid difficulty")
-        start_game()
-
-
-def game_diff1():
     number = random.randint(1, 10)
     print ("Welcome to the game!")
     print ("I'm thinking of a number between 1 and 10.")
