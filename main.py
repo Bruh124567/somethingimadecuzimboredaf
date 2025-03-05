@@ -12,11 +12,11 @@ def main():
         exit()
 
 def start_game():
-    number = random.randint(1, 50)
+    number = random.randint(1, 10)
     print ("Welcome to the game!")
-    print ("I'm thinking of a number between 1 and 50.")
+    print ("I'm thinking of a number between 1 and 10.")
     guess = input("Guess the number: ")
-    if guess.isdigit() and 1 <= int(guess) <= 50:
+    if guess.isdigit() and 1 <= int(guess) <= 10:
         if int(guess) == number:
             print ("Congratulations, you won!")
             play_again()
