@@ -37,6 +37,13 @@ def game():
         number = random.randint(1, 50)
         print ("Insane")
         print ("I'm thinking of a number between 1 and 50.")
+    elif difficulty == "5":
+        print("Warning: This feature is in development and may not work as expected.")
+        print("Enter the range of the number you want to guess (e.g. 1, 100)")
+        min_num = int(input("Enter the minimum number: "))
+        max_num = int(input("Enter the maximum number: "))
+        number = random.randint(min_num, max_num)
+        print("I'm thinking of a number between", min_num, "and", max_num)
     else:
         print("An error occoured. Restarting the game...")
         game()
@@ -49,10 +56,6 @@ def game():
             print ("Sorry, that's not the number I was thinking of.")
             print ("The number I was thinking of was", number)
             play_again()
-
-def set_custom_difficulty():
-    print("Coming soon!")
-    game()
 
 def play_again():
     print ("Would you like to play again?")
