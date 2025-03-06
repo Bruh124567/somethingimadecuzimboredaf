@@ -1,18 +1,26 @@
 import random # used for generating the random number
-difficulty = 0
+import time # used for the sleep function
+import sys # used for the exit function
+
 def main():
+    print ("Welcome to Guess the Number!")
     print ("Choose an option:")
-    print ("1. Start Game")
-    print ("2. Quit Game")
+    print ("1. Guess the Number")
+    print ("Type exit to close")
     option = input("Enter your option: ")
     if option == "1":
-        game()
-    elif option == "2":
-        print ("Goodbye!")
-        exit()
+        guess_the_number()
+    elif option == "exit":
+        print("Goodbye!")
+        sys.exit()    
+    else:
+        print ("An error occoured. Restarting the program...")
+        main()  # restarts the program
 
-
-def game():
+def select_difficulty():
+    print ("I might have broken this thing but idc.")
+    print("To exit the game at any time, type 'exit'.")
+    print("To change difficulty at any time, type 'change'.")
     print("Choose a difficulty:")
     print("1. Easy")
     print("2. Medium")
@@ -20,6 +28,15 @@ def game():
     print("4. Insane")
     print ("5. Custom")
     difficulty = input("Enter your choice: ")
+    if difficulty == "exit":
+        print("Goodbye!")
+        sys.exit()
+    return difficulty
+
+difficulty = select_difficulty()
+
+def guess_the_number():
+    print("To exit the game at any time, type 'exit'.")
     if difficulty == "1":
         number = random.randint(1, 10)
         print ("Easy")
@@ -36,22 +53,30 @@ def game():
         number = random.randint(1, 50)
         print ("Insane")
         print ("I'm thinking of a number between 1 and 50.")
+    elif difficulty == "5":
+        print("Warning: This feature is in development and may not work as expected.")
+        print("Enter the range of the number you want to guess (e.g. 1, 100)")
+        min_num = int(input("Enter the minimum number: "))
+        max_num = int(input("Enter the maximum number: "))
+        number = random.randint(min_num, max_num)
+        print("I'm thinking of a number between", min_num, "and", max_num)
+    elif difficulty == "change":
+        select_difficulty()
     else:
         print("An error occoured. Restarting the game...")
-        game()
+        guess_the_number()
     guess = input("Guess the number: ")
+    if guess == "exit":
+        print("Goodbye!")
+        sys.exit()
     if guess.isdigit() and 1 <= int(guess) <= 50: # checks if the variable guess is an integer and if it's between 1 and 50
         if int(guess) == number:
             print ("Congratulations, you won!")
-            play_again()
+            guess_the_number()
         else:
             print ("Sorry, that's not the number I was thinking of.")
             print ("The number I was thinking of was", number)
-            play_again()
-
-def set_custom_difficulty():
-    print("Coming soon!")
-    game()
+            guess_the_number()
 
 def play_again():
     print ("Would you like to play again?")
@@ -59,9 +84,9 @@ def play_again():
     print ("2. No")
     wyltpa = input("Enter your choice: ")
     if wyltpa == "1":
-        game()
+        guess_the_number()
     else:
         print ("Goodbye!")
-        exit()
+        sys.exit()
 
 main() # starts the program
