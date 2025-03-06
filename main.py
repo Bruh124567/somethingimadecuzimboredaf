@@ -13,7 +13,6 @@ def main():
 
 
 def game():
-    print ("IMPORTANT: Only the first difficulty is implemented for now!!!!")
     print("Choose a difficulty:")
     print("1. Easy")
     print("2. Medium")
