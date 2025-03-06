@@ -26,6 +26,7 @@ def main():
 def select_difficulty():
     print ("I might have broken this thing but idc.")
     print("To exit the game at any time, type 'exit'.")
+    print("To change difficulty at any time, type 'change'.")
     print("Choose a difficulty:")
     print("1. Easy")
     print("2. Medium")
@@ -64,6 +65,8 @@ def guess_the_number():
         max_num = int(input("Enter the maximum number: "))
         number = random.randint(min_num, max_num)
         print("I'm thinking of a number between", min_num, "and", max_num)
+    elif difficulty == "change":
+        select_difficulty()
     else:
         print("An error occoured. Restarting the game...")
         guess_the_number()
@@ -102,6 +105,8 @@ def guess_the_number_infinite():
         max_num = int(input("Enter the maximum number: "))
         number = random.randint(min_num, max_num)
         print("I'm thinking of a number between", min_num, "and", max_num)
+    elif difficulty == "change":
+        select_difficulty()
     else:
         print("An error occoured. Restarting the game...")
         guess_the_number_infinite()
