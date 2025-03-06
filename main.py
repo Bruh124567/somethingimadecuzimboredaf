@@ -60,7 +60,7 @@ def guess_the_number(difficulty):
         return guess_the_number(difficulty)
     else:
         print("An error occurred. Restarting the game...")
-        return guess_the_number(difficulty)
+        main()
     return number, min_num, max_num
 
 def numguess(difficulty):
