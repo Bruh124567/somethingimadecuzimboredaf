@@ -4,22 +4,10 @@ import sys # used for the exit function
 
 def main():
     print("Welcome to Guess the Number!")
-    print("Choose an option:")
-    print("1. Guess the Number")
-    print("Type exit to close")
-    option = input("Enter your option: ")
-    if option == "1":
-        difficulty = select_difficulty()
-        numguess(difficulty)
-    elif option == "exit":
-        print("Goodbye!")
-        sys.exit()
-    else:
-        print("An error occurred. Restarting the program...")
-        main()  # restarts the program
+    difficulty = select_difficulty()
+    numguess(difficulty)
 
 def select_difficulty():
-    print("I might have broken this thing but idc.")
     print("To exit the game at any time, type 'exit'.")
     print("To change difficulty at any time, type 'change'.")
     print("Choose a difficulty:")
@@ -31,6 +19,7 @@ def select_difficulty():
     difficulty = input("Enter your choice: ")
     if difficulty == "exit":
         print("Goodbye!")
+        time.sleep(2)
         sys.exit()
     return difficulty
 
@@ -61,7 +50,6 @@ def guess_the_number(difficulty):
         print("Insane")
         print("I'm thinking of a number between 1 and 50.")
     elif difficulty == "5":
-        print("Warning: This feature is in development and may not work as expected.")
         print("Enter the range of the number you want to guess (e.g. 1, 100)")
         min_num = int(input("Enter the minimum number: "))
         max_num = int(input("Enter the maximum number: "))
@@ -81,10 +69,15 @@ def numguess(difficulty):
         guess = input("Input your guess: ")
         if guess == "exit":
             print("Goodbye!")
+            time.sleep(2)
             sys.exit()
-        if guess.isdigit():
+        elif guess == "change":
+            difficulty = select_difficulty()
+            number, min_num, max_num = guess_the_number(difficulty)
+        elif guess.isdigit():
             if int(guess) == number:
                 print("Congratulations, you won!")
+                time.sleep(2)
                 difficulty = select_difficulty()
                 number, min_num, max_num = guess_the_number(difficulty)
             elif int(guess) > number:
