@@ -6,13 +6,13 @@ def main():
     print ("2. Quit Game")
     option = input("Enter your option: ")
     if option == "1":
-        game()
+        guess_the_number()
     elif option == "2":
         print ("Goodbye!")
         exit()
 
 
-def game():
+def guess_the_number():
     print ("I might have broken this thing but idc.")
     print("Choose a difficulty:")
     print("1. Easy")
@@ -46,7 +46,7 @@ def game():
         print("I'm thinking of a number between", min_num, "and", max_num)
     else:
         print("An error occoured. Restarting the game...")
-        game()
+        guess_the_number()
     guess = input("Guess the number: ")
     if guess.isdigit() and 1 <= int(guess) <= 50: # checks if the variable guess is an integer and if it's between 1 and 50
         if int(guess) == number:
@@ -63,7 +63,7 @@ def play_again():
     print ("2. No")
     wyltpa = input("Enter your choice: ")
     if wyltpa == "1":
-        game()
+        guess_the_number()
     else:
         print ("Goodbye!")
         exit()
