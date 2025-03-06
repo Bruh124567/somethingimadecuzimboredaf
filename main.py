@@ -17,6 +17,7 @@ def main():
         print ("An error occoured. Restarting the program...")
         main()  # restarts the program
 
+
 def select_difficulty():
     print ("I might have broken this thing but idc.")
     print("To exit the game at any time, type 'exit'.")
