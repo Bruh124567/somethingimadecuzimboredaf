@@ -52,9 +52,14 @@ def guess_the_number(difficulty):
     elif difficulty == "5":
         print("Enter the range of the number you want to guess (e.g. 1, 100)")
         min_num = (input("Enter the minimum number: "))
-        max_num = (input("Enter the maximum number: "))
-        number = random.randint(min_num, max_num)
-        print("I'm thinking of a number between", min_num, "and", max_num)
+        if min_num == "exit":
+            print("Goodbye!")
+            time.sleep(2)
+            sys.exit()
+        else:
+            max_num = (input("Enter the maximum number: "))
+            number = random.randint(min_num, max_num)
+            print("I'm thinking of a number between", min_num, "and", max_num)
     elif difficulty == "change":
         difficulty = select_difficulty()
         return guess_the_number(difficulty)
